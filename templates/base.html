@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
     {% include 'base/css.html' %}
   </head>
-  <body>
+  <body class="background">
     {% include 'base/nav.html' with brand_name='ToDo' %}
     {% block content %}
     {% endblock %}
