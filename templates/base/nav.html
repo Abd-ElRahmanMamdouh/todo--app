@@ -1,0 +1,23 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="{% url 'todo:index' %}">{% if brand_name %}{{ brand_name }} {% else %} dummy website {% endif%}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Collapse"
+    aria-controls="Collapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="Collapse">
+    <ul class="navbar-nav ml-auto">
+			{% if request.user.is_authenticated and request.user.is_staff %}
+			<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Welcome {{ request.user.username }}</a>
+        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/admin">manage site</a>
+          <a class="dropdown-item" href="/admin/logout">logout</a>
+        </div>
+      </li>
+			{% endif %}
+    </ul>
+  </div>
+</nav>
